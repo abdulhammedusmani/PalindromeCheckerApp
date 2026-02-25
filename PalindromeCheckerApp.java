@@ -6,10 +6,16 @@ public class PalindromeCheckerApp {
         String input = "level";
 
         PalindromeStrategy strategy = new StackStrategy();
+
+        long startTime = System.nanoTime();
         boolean isPalindrome = strategy.check(input);
+        long endTime = System.nanoTime();
+
+        long executionTime = endTime - startTime;
 
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Execution Time : " + executionTime + " ns");
     }
 }
 
@@ -18,7 +24,6 @@ interface PalindromeStrategy {
 }
 
 class StackStrategy implements PalindromeStrategy {
-
     public boolean check(String input) {
         Stack<Character> stack = new Stack<>();
 
